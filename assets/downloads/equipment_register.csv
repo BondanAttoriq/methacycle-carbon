@@ -1,0 +1,101 @@
+tag,area,name,equipment_type,x_m,y_m,z_m,rotation_deg,length_m,width_m,height_m,diameter_m,sizing_basis,source,status,params
+TIP-100,100,Tipping hall tertutup penerimaan LPP,shed,15.5,71,0.0,0,12,14,9.0,,hall bongkar truk LPP tertutup bertekanan negatif (±4 ACH → ±6.000 m³/jam ke BF-101) + stok 1 hari; pintu roll-up sisi barat; wheel loader ke HP-101,Tata letak,ASSUMED,enclosed=1
+HP-101,100,Hopper,hopper,25,71,0.0,0,6.0,6.0,3.6,,"100 t/hari basah, buffer 4 jam, ρ curah 0,40 t/m³ → 41,7 m³ efektif; limas 6×6→1,5×1,5 m",Sizing LKTIN (sizing.py),CALCULATED,top_z=3.6;outlet_z=0.9
+CV-101,100,Conveyor,conveyor,30.25,71,0.0,0,10.5,1.6,1.4,,"belt tertutup lebar 1,0 m, 4,2 t/jam; panjang dari tata letak",Sizing LKTIN (sizing.py),ASSUMED,x0=25;z0=1.1;x1=35.5;z1=5.8
+U-101,100,Pemilahan,sorter,42.5,71,0.0,0,14.0,10.0,9.5,,"shed pemilahan 14×10 m (dioptimasi dari 20×12) dengan trommel Ø2,5×10,5 m (kelas 5 t/jam)",Sizing LKTIN (sizing.py),ASSUMED,
+BIN-104,100,Kontainer reject (titik batas 4),boundary,42.5,62.0,0.0,0,,,,,roll-off 20 m³,Tata letak,ASSUMED,kind=bin
+U-102,100,Pencacah,shredder,57,71,0.0,0,5.0,3.5,6.0,,"shredder twin-shaft kelas 5 t/jam di atas rangka 2,5 m",Sizing LKTIN (sizing.py),ASSUMED,
+D-101,100,Pengering (rotary drum),dryer,68.75,71,0.0,0,11.5,,,2.3,"evaporasi 44,94 t air/hari = 1,87 t/jam; 40 kg/(m³·jam) → V 46,8 m³; L/D 5",Sizing LKTIN (sizing.py),CALCULATED,axis_z=2.3499999999999996
+VENT-108,100,Vent uap pengeringan (titik batas 8),boundary,75.2,77.2,0.0,0,,,,,stack vent uap air 14 m,Tata letak,ASSUMED,kind=vent;h=14
+R-101,100,Furnace OEC,furnace,85.5,71.0,0.0,0,12.0,7.0,15.0,,"23,82 MWth (HHV LPP+CH₄); grate 21 m² @0,9 MW/m²; ruang bakar 159 m³ @150 kW/m³; selubung refraktori",Sizing LKTIN (sizing.py),CALCULATED,
+BR-101,100,Burner,burner,88.5,66.4,3.4,0,2.2,,,1.3,"burner LFG 4,97 MWth (CH₄ 500 Nm³/jam) dengan windbox, dipasang pada dinding selatan R-101",Sizing LKTIN (sizing.py),ASSUMED,attach=R-101
+BIN-109,100,Bunker abu (titik batas 9),boundary,89.5,78.5,0.0,0,,,,,kontainer abu tertutup,Tata letak,ASSUMED,kind=bin
+AIR-158,100,Intake udara pembakaran (titik batas 58),boundary,78.5,63.0,0.0,0,,,,,kisi intake udara; fan tidak dimodelkan,Tata letak,ASSUMED,kind=intake
+N-OX,100,Simpul pencampuran O₂–udara (oksidator 57),node,83.5,63.0,3.0,0,,,,,titik temu 57/58 pada PFD,Tata letak,SOURCE,
+E-301,300,Waste Heat Boiler,whb,98.0,71.0,0.0,0,5.0,4.0,11.0,,gas buang 5.213 Nm³/jam basah (CO₂ 88% kering); ±4 MW dari ~1.500 → 220 °C; WHB pipa-air vertikal + steam drum,Sizing LKTIN (sizing.py),CALCULATED,
+U-301A,300,ESP,esp,107.5,71.0,0.0,0,7.0,3.2,5.0,,"Q 2,51 m³/s @200 °C, kecepatan 1 m/s → penampang 2,5 m²; SCA 80 → ±201 m² pelat",Sizing LKTIN (sizing.py),CALCULATED,
+BIN-120,300,Kontainer fly ash (titik batas 20),boundary,107.5,78.5,0.0,0,,,,,silo/kontainer fly ash tertutup,Tata letak,ASSUMED,kind=bin
+U-301B,300,Scrubber,vvessel,114.5,71.0,0.0,0,,,10.0,1.2,"Q 1,15 m³/s @60 °C jenuh, 2 m/s → D 0,86 m (dibulatkan); packed + sump",Sizing LKTIN (sizing.py),CALCULATED,skirt=1.0;packed=1;platform=1
+BIN-122,300,Tote residu gas cleaning (titik batas 22),boundary,117.0,75.5,0.0,0,,,,,IBC/drum residu,Tata letak,ASSUMED,kind=tote
+E-302,300,Cooler,hx,110.0,62.0,0.0,0,5.0,,,0.8,cooler shell & tube gas buang ke ±35 °C,Sizing LKTIN (sizing.py),ASSUMED,z0=1.0
+V-301,300,Separator,vvessel,116.0,62.0,0.0,0,,,3.5,1.0,"pemisah kondensat; u_SB 0,1 m/s√(Δρ/ρ) → D minimum 0,6 m; dipakai 1,0 m",Sizing LKTIN (sizing.py),CALCULATED,skirt=0.6
+W-2,300,Konektor W-2 (kondensat gas buang → U-702),node,118.4,62.0,0.95,0,,,,,konektor PFD,Tata letak,SOURCE,
+K-301,300,Kompresor (CCU),compressor,88.0,31.0,0.0,0,7.5,3.6,3.4,,"kompresor multi-tahap gas kering 2.723 Nm³/jam → 3 MPa (Lampiran 7); skid + shelter; daya bagian dari 1,20 MWe CCU",Sizing LKTIN (sizing.py),ASSUMED,shelter=1
+E-303,300,Intercooler,hx,95.5,31.0,0.0,0,4.0,,,0.6,intercooler kompresi; panas H-03 ke HRN-601,Sizing LKTIN (sizing.py),ASSUMED,z0=1.0
+A-301,300,Dehidrasi,vvessel,100.5,31.5,0.0,0,,,4.0,1.0,dehidrasi (adsorber TSA) gas 3 MPa,Sizing LKTIN (sizing.py),ASSUMED,skirt=0.6;packed=1
+E-304,300,Cooler kriogenik,hx,106.0,31.0,0.0,0,5.0,,,0.8,pendingin kriogenik −60 °C (Lampiran 7),Sizing LKTIN (sizing.py),ASSUMED,z0=1.0;insul=1
+V-302,300,Separator CO₂,vvessel,112.0,32.0,0.0,0,,,5.5,1.0,"separator CO₂ cair 3 MPa, −9 °C produk; kemurnian 99,43% massa",Sizing LKTIN (sizing.py),ASSUMED,skirt=0.8;packed=1;insul=1;platform=1
+ST-301,300,Stack (gas tidak tertangkap),stack,114.5,34.8,0.0,0,,,20.0,0.5,stack gas tidak tertangkap; puncak ≥3 m di atas R-101 (15 m),Sizing LKTIN (sizing.py),ASSUMED,
+E-305,300,Pemanas CO₂,hx,108.0,25.0,0.0,0,3.0,,,0.5,pemanas CO₂ sebelum booster,Sizing LKTIN (sizing.py),ASSUMED,z0=0.9
+K-302,300,Booster CO₂,compressor,113.0,23.5,0.0,0,5.0,2.6,2.6,,"booster CO₂ ke tekanan sintesis 5–7,8 MPa",Sizing LKTIN (sizing.py),ASSUMED,
+LFG-110,200,Sambungan header LFG dari sumur landfill (titik batas 10),boundary,10.5,30.0,0.0,0,,,,,LFG 1.000 Nm³/jam (LKTIN),Tata letak,SOURCE,kind=header
+V-201,200,KO Drum,vvessel,15.0,30.0,0.0,0,,,2.8,0.8,"KO drum LFG 1.000 Nm³/jam; D hidrolik 0,36 m → minimum mekanis 0,8 m",Sizing LKTIN (sizing.py),CALCULATED,skirt=0.5
+W-1,200,Konektor W-1 (kondensat LFG → U-702),node,15.0,28.0,0.75,0,,,,,konektor PFD,Tata letak,SOURCE,
+A-201,200,Desulfurisasi,vvessel,21.0,30.0,0.0,0,,,3.6,1.4,"desulfurisasi; GHSV 500 jam⁻¹ → media 2,0 m³; D 1,4 m, bed 1,3 m",Sizing LKTIN (sizing.py),CALCULATED,skirt=0.6;packed=1
+BIN-114,200,Bin adsorben bekas desulfurisasi (titik batas 14),boundary,21.0,25.8,0.0,0,,,,,drum media bekas,Tata letak,ASSUMED,kind=tote
+A-202,200,Siloksana,vvessel,27.5,30.0,0.0,0,,,4.2,1.2,"karbon aktif siloksana; 0,25 m/s → D 1,2 m, bed 2,0 m",Sizing LKTIN (sizing.py),CALCULATED,skirt=0.6;packed=1
+BIN-116,200,Bin adsorben bekas siloksana (titik batas 16),boundary,27.5,25.8,0.0,0,,,,,drum media bekas,Tata letak,ASSUMED,kind=tote
+K-201,200,Blower LFG,blower,35.0,30.0,0.0,0,3.2,1.6,1.8,,blower LFG 1.000 Nm³/jam ke BR-101,Sizing LKTIN (sizing.py),ASSUMED,
+M-401,400,Mixer,hx,121.0,60.5,0.0,0,2.6,,,0.6,mixer statis inline CO₂ (30) + H₂ (53) + recycle (38),Sizing LKTIN (sizing.py),ASSUMED,z0=1.0;mixer=1
+E-401,400,F/E HX,hx,127.8,60.5,0.0,0,7.0,,,1.0,"F/E HX shell & tube, 4 nosel (sisi dingin 31→32, sisi panas 33→34)",Sizing LKTIN (sizing.py),ASSUMED,z0=1.0
+E-402,400,Kondensor,hx,127.8,66.5,0.0,0,6.0,,,1.0,"kondensor efluen (air pendingin, sistem terpisah)",Sizing LKTIN (sizing.py),ASSUMED,z0=1.0
+R-401,400,Reaktor metanol,vvessel,134.5,68.0,0.0,0,,,9.0,2.0,"umpan segar 398 kmol/jam, rasio recycle 4 (asumsi) → 44.585 Nm³/jam; GHSV 8.000 jam⁻¹ → katalis 5,6 m³ Cu/ZnO/Al₂O₃; 2 bed",Sizing LKTIN (sizing.py),CALCULATED,skirt=2.5;platform=2;cat=1
+V-401,400,Separator,vvessel,139.5,61.5,0.0,0,,,4.5,1.2,"ρg 33 kg/m³ @7,8 MPa; u 0,34 m/s → D 0,84 m; holdup cair 5 menit",Sizing LKTIN (sizing.py),CALCULATED,skirt=1.0
+SP-401,400,Splitter,valveskid,139.5,73.0,0.0,0,1.6,1.0,1.4,,"splitter recycle/purge (fraksi purge 5%, Lampiran 7): tee + katup kendali",Sizing LKTIN (sizing.py),SOURCE,
+G-1,400,Konektor G-1 (purge → U-603),node,141.5,73.0,1.2,0,,,,,konektor PFD,Tata letak,SOURCE,
+K-401,400,Kompresor recycle,compressor,122.5,73.0,0.0,0,6.0,3.0,3.0,,kompresor recycle (sirkulator),Sizing LKTIN (sizing.py),ASSUMED,
+V-402,400,Flash Drum,hvessel,144.0,64.5,0.0,90,3.2,,,1.2,"cairan 116,8 t/hari = 5,7 m³/jam; τ 15 menit, isi 50% → 2,8 m³",Sizing LKTIN (sizing.py),CALCULATED,z0=1.0
+G-2,400,Konektor G-2 (flash gas → U-603),node,145.5,68.1,2.9,0,,,,,konektor PFD,Tata letak,SOURCE,
+T-401,400,Distilasi,column,148.5,71.5,0.0,0,,,24.0,1.2,"distilat 97 kmol/jam, R=1,2 (asumsi) → uap 1,40 m³/s; F-factor 2,0, 80% flooding → D 1,14 m; ±40 tray @0,5 m",Sizing LKTIN (sizing.py),CALCULATED,skirt=3.0;platform=5;trays=1
+STR-401,400,Struktur overhead T-401 ,frame,153.0,71.5,0.0,0,5.0,5.0,10.5,,"dek E-404 (+10,5 m) dan V-403 (+5 m)",Tata letak,ASSUMED,"levels=5.0,10.5"
+E-404,400,Kondensor,hx,153.0,71.5,0.0,90,4.5,,,0.9,kondensor overhead di dek +10 m,Sizing LKTIN (sizing.py),ASSUMED,z0=10.75;onframe=1
+V-403,400,Reflux Drum,hvessel,153.0,71.5,0.0,90,2.6,,,0.9,"L+D ±8,7 m³/jam; τ 5 menit, isi 50% → 1,5 m³",Sizing LKTIN (sizing.py),CALCULATED,z0=5.25;onframe=1
+P-401,400,Pompa,pump,153.0,66.9,0.0,0,2.0,1.0,1.1,,pompa refluks/distilat,Sizing LKTIN (sizing.py),ASSUMED,
+N-REF,400,Simpul pembagi refluks (46) / distilat (47),node,155.0,66.9,1.6,0,,,,,pecahan keluaran P-401 pada PFD,Tata letak,SOURCE,
+E-405,400,Reboiler (kettle),hx,143.5,71.5,0.0,90,4.0,,,1.2,reboiler kettle; panas H-06 dari HRN-601,Sizing LKTIN (sizing.py),ASSUMED,z0=0.8;kettle=1
+TK-401,400,Tangki Metanol,tank,168.1,68.0,0.0,0,,,6.4,7.9,"74,72 t/hari ÷ 0,792 t/m³ × 3 hari (asumsi; ±4 truk tangki/hari) ÷ isi 90% → 314 m³; H/D 0,8; bund 110% (dinding 1,80 m) 16×16 m",Sizing LKTIN (sizing.py),CALCULATED,bund=16;bund_h=1.8;roof=cone
+LOAD-148,400,Loading bay e-methanol (titik batas 48),boundary,168.1,80.5,0.0,0,,,,,loading arm truk tangki,Tata letak,ASSUMED,kind=loading
+U-603,600,Oksidasi Purge,oxidizer,121.0,82.0,0.0,0,,,5.0,2.0,oksidasi termal purge G-1 + flash gas G-2,Sizing LKTIN (sizing.py),ASSUMED,
+ST-601,600,Stack purge,stack,121.0,82.0,6.0,0,,,9.0,0.8,stack di atas U-603 (+6 m); puncak ±15 m,Sizing LKTIN (sizing.py),ASSUMED,ontop=U-603
+EL-501,500,PEM Electrolyzer,electrolyzer,132.0,20.0,0.0,0,30.0,21.0,7.5,,"33,10 MWe (SOURCE) dibagi 12 modul stack ±2,76 MW (asumsi kelas modul); 55,2 kWh/kg H₂; 14,30 t H₂/hari; 70 °C",Sizing LKTIN (sizing.py),ASSUMED,
+V-502,500,Separator O₂,vvessel,120.0,33.4,0.0,0,,,4.2,1.4,"O₂ 114,4 t/hari = 3.338 Nm³/jam @70 °C; pemisah gas–air sirkulasi",Sizing LKTIN (sizing.py),CALCULATED,skirt=0.6
+N-O2,500,Header O₂ (simpul 55 → 56/57),node,123.5,35.0,6.0,0,,,,,titik cabang header O₂ pada PFD,Tata letak,SOURCE,
+O2-156,500,Ekspor/vent surplus O₂ (titik batas 56),boundary,126.5,35.0,0.0,0,,,,,"13,33 t/hari surplus teoritis (LKTIN)",Tata letak,ASSUMED,kind=vent;h=8
+A-501,500,Pengering H₂,vvessel,130.0,33.4,0.0,0,,,3.6,0.9,"pengering H₂ 14,30 t/hari = 6.625 Nm³/jam",Sizing LKTIN (sizing.py),ASSUMED,skirt=0.6;packed=1
+K-501,500,Kompresor H₂,compressor,139.5,33.4,0.0,0,7.5,3.6,3.4,,"kompresor H₂ reciprocating ke 5–7,8 MPa; skid + shelter",Sizing LKTIN (sizing.py),ASSUMED,shelter=1
+HRN-601,600,Integrasi Panas,header,76.0,31.0,0.0,0,12.0,4.0,4.5,,representasi konseptual jaringan integrasi panas: stasiun header utilitas H-01…H-07,Sizing LKTIN (sizing.py),ASSUMED,
+H05-TBD,600,"Titik sambung H-05 (pemanasan awal umpan, lokasi rinci belum ditetapkan)",boundary,77.5,34.8,0.0,0,,,,,LKTIN & Tabel stream: lokasi rinci belum ditetapkan,Tata letak,TBD,kind=tbd
+E-601,600,Evaporator ORC,hx,62.0,29.0,0.0,0,7.0,,,1.4,evaporator ORC (H-07),Sizing LKTIN (sizing.py),ASSUMED,z0=1.0
+EX-601,600,Turbin ORC,turbine,53.5,21.0,0.0,0,5.0,2.8,2.8,,"turbin ORC; listrik bersih WHR ≈1,75 MWe (SOURCE)",Sizing LKTIN (sizing.py),ASSUMED,
+G-601,600,Generator,generator,58.2,21.0,0.0,0,3.2,2.4,2.4,,generator ORC ±2 MVA,Sizing LKTIN (sizing.py),ASSUMED,
+E-602,600,Kondensor ORC,hx,62.0,15.0,0.0,0,7.0,,,1.6,"kondensor ORC (air pendingin 70/71, sistem terpisah)",Sizing LKTIN (sizing.py),ASSUMED,z0=1.0
+P-601,600,Pompa ORC,pump,69.0,21.0,0.0,90,2.0,1.0,1.1,,pompa fluida kerja ORC,Sizing LKTIN (sizing.py),ASSUMED,
+CWS-170,600,Titik sambung suplai air pendingin (70) ← CT-701,node,61.0,9.8,1.0,0,,,,,Tabel stream: cooling water sistem terpisah; v3 disambung ke CT-701 ,Tata letak,SOURCE,
+CWR-171,600,Titik sambung balik air pendingin (71) → CT-701,node,63.0,9.8,1.0,0,,,,,Tabel stream: cooling water sistem terpisah; v3 disambung ke CT-701 ,Tata letak,SOURCE,
+BUS,600,Bus listrik (gardu & switchgear),substation,100.0,15.0,0.0,0,22.0,10.0,5.0,,"bus listrik: gardu induk + switchgear; beban 33,10+1,20 MWe + aux; trafo utama 2×25 MVA (asumsi)",Sizing LKTIN (sizing.py),ASSUMED,
+GRID-EL01,600,Sambungan listrik eksternal rendah karbon (titik batas EL-01),boundary,100.0,9.3,0.0,0,,,,,EL-01,Tata letak,SOURCE,kind=grid
+AUX-EL05,600,Panel distribusi beban auxiliaries (titik batas EL-05),boundary,104.0,22.2,0.0,0,,,,,EL-05; MCC menuju beban lain,Tata letak,ASSUMED,kind=mcc
+U-702,700,Pengolahan Air,watertreat,158.0,29.5,0.0,0,13.0,7.0,5.5,,"umpan ±91 m³/hari (air sintesis 42,03 + kondensat W-1/W-2 asumsi ±49); tangki ekualisasi 1 hari + skid pengolahan",Sizing LKTIN (sizing.py),CALCULATED,
+U-701,700,Polishing (RO/EDI),container,158.0,20.5,0.0,0,12.2,2.5,2.9,,polishing RO/EDI dalam kontainer 40 ft,Sizing LKTIN (sizing.py),ASSUMED,
+MU-162,700,Air make-up eksternal (titik batas 62),boundary,167.0,19.9,0.0,0,,,,,Tabel stream 62,Tata letak,SOURCE,kind=header
+WW-160,700,Saluran air limbah (titik batas 60/63),boundary,167.0,28.0,0.0,0,,,,,Air limbah pada PFD,Tata letak,SOURCE,kind=sewer
+TK-701,700,Tangki Air,tank,154.5,13.0,0.0,0,,,4.5,4.5,"air kualitas PEME 128,7 t/hari × 12 jam ÷ isi 90% → 71 m³; H/D 1,0",Sizing LKTIN (sizing.py),CALCULATED,roof=dome
+P-701,700,Pompa,pump,149.5,13.0,0.0,0,2.0,1.0,1.1,,pompa air umpan PEME,Sizing LKTIN (sizing.py),ASSUMED,
+CR-ADMIN,PENDUKUNG,Ruang kendali + kantor,building,20.0,15.5,0.0,0,18,9,7.5,,"ruang kendali, kantor, lab QC",Tata letak,ASSUMED,
+GATE,PENDUKUNG,Pos jaga + jembatan timbang truk LPP ,gate,40.0,82.5,0.0,0,18,3.4,3.0,,akses truk LPP dari utara,Tata letak,ASSUMED,
+WS,PENDUKUNG,Bengkel & gudang,building,39.0,15.5,0.0,0,14,8,6.5,,ruang pemeliharaan,Tata letak,ASSUMED,
+CT-701,UTIL,Cooling tower mekanis 4 sel + basin & pompa CW ,coolingtower,93.0,-18.0,0.0,0,40.0,11.0,10.5,,"beban CW ±27,0 MWth (PEME 9,6 [listrik − H₂ HHV], kondensor ORC 12,8 [η 12% asumsi], sintesis/distilasi 3,0 & CCU 1,5 asumsi); ΔT 10 K → 2.322 m³/jam; 4 sel × ±700 m³/jam (10×10 m); make-up ±1.137 m³/hari (CoC 4)",Utilitas pendukung v3 (sizing.py),CALCULATED,cells=4;fan_d=7.5
+TK-901,UTIL,Tangki air pemadam ,tank,54.0,-17.0,0.0,0,,,8.6,12.0,"cadangan air pemadam 2 jam × 450 m³/jam (asumsi) = 900 m³; D 12 m, isi 92%",Utilitas pendukung v3 (sizing.py),CALCULATED,roof=cone;color=fire
+PH-901,UTIL,Rumah pompa pemadam: pompa listrik + diesel + jockey ,pumphouse,66.5,-20.0,0.0,0,9.0,7.0,4.8,,pompa utama listrik 450 m³/jam + pompa diesel cadangan + jockey; rumah pompa 9 × 7 m,Utilitas pendukung v3 (sizing.py),ASSUMED,
+U-302R,UTIL,"Paket refrigerasi CCU (kaskade, kondensor udara) untuk E-304 ",refrigpkg,78.0,12.5,0.0,0,12.0,5.0,3.4,,"beban pendinginan −60 °C ≈ 0,65 MW (CO₂ 112,6 t/hari × ±500 kJ/kg); kaskade 2 tahap, COP ±1,2 (asumsi); kondensor udara; skid 12 × 5 m",Utilitas pendukung v3 (sizing.py),CALCULATED,
+U-902,UTIL,Paket udara instrumen + generator N₂ (PSA) + receiver ,iapkg,130.0,-16.0,0.0,0,14.0,9.0,5.0,,"2 × kompresor udara screw + dryer (dew point −40 °C) + PSA N₂ 99,5% ±100 Nm³/jam; receiver IA 10 m³ & buffer N₂ 15 m³",Utilitas pendukung v3 (sizing.py),ASSUMED,
+N-IA0,UTIL,Simpul header udara instrumen (naik ke rack),node,171.2,-13.0,2.4,0,,,,,titik naik header IA,Tata letak,ASSUMED,
+N-N20,UTIL,Simpul header N₂ (naik ke rack),node,173.5,-11.5,2.4,0,,,,,titik naik header N₂,Tata letak,ASSUMED,
+N-IA1,UTIL,Header distribusi IA Area 100–300 (konsumen: katup kendali),node,72.0,61.0,3.0,0,,,,,ujung header IA,Tata letak,ASSUMED,
+N-N21,UTIL,Header N₂ purging Area 400 (reaktor/kolom/tangki),node,117.0,59.0,3.0,0,,,,,ujung header N₂,Tata letak,ASSUMED,
+V-901,UTIL,KO drum flare ,hvessel,164.0,-22.0,0.0,0,8.0,,,2.4,"KO drum flare horizontal; kasus relief acuan ±25 t/jam (asumsi, perlu studi relief)",Utilitas pendukung v3 (sizing.py),ASSUMED,z0=1.0
+FL-901,UTIL,"Flare darurat elevated (sterile radius 60 m, pendukung)",flare,150.0,-105.0,0.0,0,,,30.0,0.6,"flare elevated 30 m, Ø 0,6 m, pilot kontinu; sterile area radius 60 m (≥ jarak radiasi 1,58 kW/m², pendekatan API 521)",Utilitas pendukung v3 (sizing.py),ASSUMED,sterile_r=60.0
+N-RL4,UTIL,Kolektor header relief Area 400 (PSV R-401/V-401/V-402/T-401),node,146.5,58.2,6.5,0,,,,,kolektor PSV; branch PSV tidak dimodelkan,Tata letak,ASSUMED,
+N-RL5,UTIL,Kolektor header relief H₂ Area 500 (PSV A-501/K-501),node,146.0,36.3,4.0,0,,,,,kolektor PSV sisi H₂,Tata letak,ASSUMED,
+BF-101,UTIL,"Biofilter udara hall + fan FN-101 (pengendali bau, pendukung)",biofilter,17.5,82.2,0.0,0,13.0,5.4,2.4,,"udara hall 12×14×9 m × 4 ACH = 6.048 m³/jam; beban 100 m³/m²/jam → 60 m² (bed 13 × 5,4 m, media 1,2 m)",Utilitas pendukung v3 (sizing.py),CALCULATED,
+PARK,UTIL,"Parkir, laydown & titik kumpul (muster point)",parking,26.0,-17.0,0.0,0,32,26,0.2,,±40 mobil + laydown + muster point,Tata letak,ASSUMED,

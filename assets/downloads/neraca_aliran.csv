@@ -1,0 +1,111 @@
+stream_id,laju,satuan,jenis,status,basis
+1,100.0,t/hari,massa,SOURCE,LPP basah 100 t/hari (Tabel 3); reject tidak dikuantifikasi LKTIN
+2,100.0,t/hari,massa,SOURCE,LPP basah 100 t/hari (Tabel 3); reject tidak dikuantifikasi LKTIN
+3,100.0,t/hari,massa,SOURCE,LPP basah 100 t/hari (Tabel 3); reject tidak dikuantifikasi LKTIN
+5,100.0,t/hari,massa,SOURCE,LPP basah 100 t/hari (Tabel 3); reject tidak dikuantifikasi LKTIN
+6,100.0,t/hari,massa,SOURCE,LPP basah 100 t/hari (Tabel 3); reject tidak dikuantifikasi LKTIN
+4,,t/hari,massa,,reject pemilahan tidak dikuantifikasi
+7,55.06,t/hari,massa,CALCULATED,"49,55 t kering/hari ÷ (1 − 0,10)"
+8,44.94,t/hari,massa,SOURCE,"air diuapkan 44,94 t/hari (§3.5)"
+9,,t/hari,massa,,abu/residu/media bekas: tidak dikuantifikasi (batch)
+14,,t/hari,massa,,abu/residu/media bekas: tidak dikuantifikasi (batch)
+16,,t/hari,massa,,abu/residu/media bekas: tidak dikuantifikasi (batch)
+20,,t/hari,massa,,abu/residu/media bekas: tidak dikuantifikasi (batch)
+22,,t/hari,massa,,abu/residu/media bekas: tidak dikuantifikasi (batch)
+10,31.29,t/hari,massa,CALCULATED,"1.000 Nm³/jam × M campuran 29,2 kg/kmol"
+11,30.99,t/hari,massa,CALCULATED,"LFG − kondensat (asumsi 0,3 t/hari)"
+13,30.99,t/hari,massa,CALCULATED,"LFG − kondensat (asumsi 0,3 t/hari)"
+15,30.99,t/hari,massa,CALCULATED,"LFG − kondensat (asumsi 0,3 t/hari)"
+17,30.99,t/hari,massa,CALCULATED,"LFG − kondensat (asumsi 0,3 t/hari)"
+12,0.3,t/hari,massa,ASSUMED,kondensat LFG
+18,187.08,t/hari,massa,CALCULATED,"LPP kering + LFG + O₂ 101,03 (abu diabaikan)"
+19,187.08,t/hari,massa,CALCULATED,"LPP kering + LFG + O₂ 101,03 (abu diabaikan)"
+21,187.08,t/hari,massa,CALCULATED,"LPP kering + LFG + O₂ 101,03 (abu diabaikan)"
+23,187.08,t/hari,massa,CALCULATED,"LPP kering + LFG + O₂ 101,03 (abu diabaikan)"
+24,187.08,t/hari,massa,CALCULATED,"LPP kering + LFG + O₂ 101,03 (abu diabaikan)"
+25,63.82,t/hari,massa,CALCULATED,air terkondensasi = gas buang − gas umpan CCU
+26,123.25,t/hari,massa,CALCULATED,"CO₂ 112,60 + O₂ berlebih 9,19 + N₂ 0,47 + uap ±1"
+U302-1,123.25,t/hari,massa,CALCULATED,sama dengan aliran 26
+U302-2,123.25,t/hari,massa,CALCULATED,sama dengan aliran 26
+U302-3,123.25,t/hari,massa,CALCULATED,sama dengan aliran 26
+U302-4,123.25,t/hari,massa,CALCULATED,sama dengan aliran 26
+27,15.22,t/hari,massa,CALCULATED,gas umpan − CO₂ tertangkap
+28,108.03,t/hari,massa,SOURCE,"CO₂ tertangkap 108,03 t/hari (Tabel 3)"
+29,108.03,t/hari,massa,SOURCE,"CO₂ tertangkap 108,03 t/hari (Tabel 3)"
+30,108.03,t/hari,massa,SOURCE,"CO₂ tertangkap 108,03 t/hari (Tabel 3)"
+31,489.32,t/hari,massa,ASSUMED,"umpan segar 122,33 + recycle ±3× (asumsi)"
+32,489.32,t/hari,massa,ASSUMED,"umpan segar 122,33 + recycle ±3× (asumsi)"
+33,489.32,t/hari,massa,ASSUMED,"umpan segar 122,33 + recycle ±3× (asumsi)"
+34,489.32,t/hari,massa,ASSUMED,"umpan segar 122,33 + recycle ±3× (asumsi)"
+35,489.32,t/hari,massa,ASSUMED,"umpan segar 122,33 + recycle ±3× (asumsi)"
+36,372.57,t/hari,massa,CALCULATED,efluen − metanol mentah
+37,353.94,t/hari,massa,CALCULATED,95% gas atas (purge 5%)
+38,353.94,t/hari,massa,CALCULATED,95% gas atas (purge 5%)
+39,18.63,t/hari,massa,CALCULATED,purge 5% (Lampiran 7)
+G-1,18.63,t/hari,massa,CALCULATED,purge 5% (Lampiran 7)
+40,116.75,t/hari,massa,CALCULATED,"metanol 74,72 + air sintesis 42,03"
+41,2.0,t/hari,massa,ASSUMED,flash gas
+G-2,2.0,t/hari,massa,ASSUMED,flash gas
+42,114.75,t/hari,massa,CALCULATED,
+43,186.8,t/hari,massa,ASSUMED,"rasio refluks 1,5 (asumsi)"
+44,186.8,t/hari,massa,ASSUMED,"rasio refluks 1,5 (asumsi)"
+45,186.8,t/hari,massa,ASSUMED,"rasio refluks 1,5 (asumsi)"
+45b,186.8,t/hari,massa,ASSUMED,"rasio refluks 1,5 (asumsi)"
+46,112.08,t/hari,massa,ASSUMED,refluks
+47,74.72,t/hari,massa,SOURCE,"produk 74,72 t/hari, 99,76% massa"
+48,74.72,t/hari,massa,SOURCE,"produk 74,72 t/hari, 99,76% massa"
+49,60.0,t/hari,massa,ASSUMED,boil-up
+50,102.0,t/hari,massa,ASSUMED,cairan bawah ke reboiler
+59,42.03,t/hari,massa,SOURCE,"air hasil sintesis 42,03 t/hari"
+51,15.3,t/hari,massa,ASSUMED,H₂ basah (+uap)
+52,14.3,t/hari,massa,SOURCE,"H₂ 14,30 t/hari"
+53,14.3,t/hari,massa,SOURCE,"H₂ 14,30 t/hari"
+54,115.37,t/hari,massa,ASSUMED,O₂ basah
+55,114.37,t/hari,massa,SOURCE,"O₂ koproduk 114,37 t/hari"
+56,13.33,t/hari,massa,SOURCE,"surplus O₂ 13,33 t/hari"
+57,101.03,t/hari,massa,SOURCE,"O₂ ke OEC 101,03 t/hari"
+57a,101.03,t/hari,massa,SOURCE,"O₂ ke OEC 101,03 t/hari"
+58,,t/hari,massa,,udara pelengkap tidak dikuantifikasi
+W-1,0.3,t/hari,massa,ASSUMED,lanjutan 12
+W-2,63.82,t/hari,massa,CALCULATED,lanjutan 25
+60,5.0,t/hari,massa,ASSUMED,reject
+61,101.15,t/hari,massa,CALCULATED,umpan U-702 − reject
+63,3.0,t/hari,massa,ASSUMED,reject polishing
+62,30.51,t/hari,massa,CALCULATED,kebutuhan PEME + reject − air terolah
+64,128.66,t/hari,massa,SOURCE,"air elektrolisis 128,66 t/hari (Lampiran 8)"
+64b,128.66,t/hari,massa,SOURCE,"air elektrolisis 128,66 t/hari (Lampiran 8)"
+65,128.66,t/hari,massa,SOURCE,"air elektrolisis 128,66 t/hari (Lampiran 8)"
+66,4200.0,t/hari,massa,ASSUMED,"fluida kerja: Q ORC 14,6 MW ÷ ±300 kJ/kg"
+67,4200.0,t/hari,massa,ASSUMED,"fluida kerja: Q ORC 14,6 MW ÷ ±300 kJ/kg"
+68,4200.0,t/hari,massa,ASSUMED,"fluida kerja: Q ORC 14,6 MW ÷ ±300 kJ/kg"
+69,4200.0,t/hari,massa,ASSUMED,"fluida kerja: Q ORC 14,6 MW ÷ ±300 kJ/kg"
+70,26526.32,t/hari,massa,CALCULATED,"kondensor ORC ±12,8 MW, ΔT 10 K"
+71,26526.32,t/hari,massa,CALCULATED,"kondensor ORC ±12,8 MW, ΔT 10 K"
+CW-1,26526.32,t/hari,massa,CALCULATED,"kondensor ORC ±12,8 MW, ΔT 10 K"
+CW-2,26526.32,t/hari,massa,CALCULATED,"kondensor ORC ±12,8 MW, ΔT 10 K"
+CW-3,19906.7,t/hari,massa,CALCULATED,"pendingin PEME ±9,6 MW, ΔT 10 K"
+CW-4,19906.7,t/hari,massa,CALCULATED,"pendingin PEME ±9,6 MW, ΔT 10 K"
+RF-1,51.0,t/hari,massa,ASSUMED,"refrigeran: 0,65 MW ÷ ±1.100 kJ/kg"
+RF-2,51.0,t/hari,massa,ASSUMED,"refrigeran: 0,65 MW ÷ ±1.100 kJ/kg"
+IA-1,4.3,t/hari,massa,ASSUMED,udara instrumen ±150 Nm³/jam
+IA-2,4.3,t/hari,massa,ASSUMED,udara instrumen ±150 Nm³/jam
+N2-1,3.0,t/hari,massa,ASSUMED,N₂ ±100 Nm³/jam
+N2-2,3.0,t/hari,massa,ASSUMED,N₂ ±100 Nm³/jam
+OD-1,174.18,t/hari,massa,CALCULATED,udara hall 6.048 m³/jam
+FW-1,0.0,t/hari,massa,SIAGA,normal tanpa aliran (hanya saat kebakaran/relief)
+RL-1,0.0,t/hari,massa,SIAGA,normal tanpa aliran (hanya saat kebakaran/relief)
+RL-2,0.0,t/hari,massa,SIAGA,normal tanpa aliran (hanya saat kebakaran/relief)
+RL-3,0.0,t/hari,massa,SIAGA,normal tanpa aliran (hanya saat kebakaran/relief)
+72,20.63,t/hari,massa,CALCULATED,purge + flash teroksidasi
+H-01,19.06,MW,panas,CALCULATED,"±80% energi bahan bakar OEC (18,85 + 4,97 MWth)"
+H-02,1.34,MW,panas,SOURCE,"panas reaksi sintesis ≈1,34 MWth"
+H-03,0.5,MW,panas,ASSUMED,panas kompresi CCU
+H-04,1.35,MW,panas,SOURCE,"beban pengeringan ≈1,35 MWth"
+H-05,,MW,panas,,TBD
+H-06,1.5,MW,panas,ASSUMED,reboiler distilasi
+H-07,14.58,MW,panas,CALCULATED,"1,75 MWe ÷ η ORC 12%"
+EL-01,34.3,MW,listrik,SOURCE,"listrik eksternal 34,30 MW (§3.5)"
+EL-02,1.75,MW,listrik,SOURCE,"ORC ≈1,75 MWe"
+EL-03,33.1,MW,listrik,SOURCE,"PEME 33,10 MWe"
+EL-04,1.2,MW,listrik,SOURCE,"CCU 1,20 MWe"
+EL-05,1.75,MW,listrik,CALCULATED,neraca bus
